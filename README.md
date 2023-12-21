@@ -1,12 +1,9 @@
-File: algorithms_documentation.md
-Author: Your Name
-Copyright: © 2023 Your Company Name
 
 # Algorithms and Calculations Documentation
 
 ## Introduction
 
-This document provides detailed documentation for the algorithms and calculations implemented in our product for monitoring body movements.
+This document provides detailed documentation for the algorithms and calculations implemented in pheezee report.
 
 ## Table of Contents
 
