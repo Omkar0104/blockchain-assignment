@@ -35,4 +35,27 @@ The `getRangeGained` function calculates the range of motion gained during a spe
 
 ```javascript
 // Include the JavaScript code for the getRangeGained function here.
+function getRangeGained(maxAngle, minAngle, bodypart, exercise_name) {
+    let maxVal = 0;
+
+    if (bodypart === "Hip") {
+        maxVal = maxAngle - minAngle;
+    } else if (bodypart === "Shoulder" && exercise_name === "Adduction") {
+        // Handle specific case for Shoulder Adduction exercise.
+        maxVal = minAngle < 0 ? Math.abs(Math.min(minAngle, 0)) : 0;
+        if (minAngle < 0 && maxAngle < 0) {
+            maxVal = Math.abs(minAngle) - Math.abs(maxAngle);
+        }
+    } else if ((bodypart === "Elbow" || bodypart === "Knee") && exercise_name === "Extension") {
+        // Handle specific case for Elbow or Knee Extension exercise.
+        maxVal = Math.max(minAngle, 0);
+    } else {
+        // General case handling for other body parts and exercises.
+        maxVal = Math.max(maxAngle - Math.max(minAngle, 0), 0);
+    }
+
+    return maxVal;
+}
+
+        
 // ...
